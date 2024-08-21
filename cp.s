@@ -7,7 +7,7 @@
 
 
 .section .data
-usage: .string "Usage: cp <src> <dest\n>"
+usage: .string "Usage: cp <src> <dest>\n"
 usage_len: .quad . - usage
 error: .string "error: could not open file\n"
 error_len: .quad . - error
@@ -73,3 +73,4 @@ exit_usage:
 
 exit_error:
     write $1, error(%rip), error_len(%rip)
+    exit $-2
